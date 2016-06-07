@@ -48,6 +48,7 @@ bool Menu::validate(int option)
 
 void Menu::routeAction(int option)
 {
+
 	switch(option)
 	{
 	case 1:
@@ -65,22 +66,66 @@ void Menu::routeAction(int option)
 	pause();
 }
 
+	//void show(Element* element)
+//{while(Element != NULL)
+	//{
+
+		//cout <<endl <<element->id <<" -> "<<"Producto: " << element->_name <<"\t" <<"Cantidad: " << element->quantity << endl;
+		//element = element->_next;
+
+	//}
+//}
 void Menu::listItems()
 {
+  while(Element != NULL)
+	{
+
+		cout <<endl <<element->id <<" -> "<<"Producto: " << element->_name <<"\t" <<"Cantidad: " << element->quantity << endl;
+		element = element->_next;
+
+	}  /*Element* firstElement = malloc(sizeof(Element));
+    firstElement->_name = "Leche";
+    Element* secondElement = malloc(sizeof(Element));
+    secondElement->_name = "Galletas";
+    Element* thirdElement = malloc(sizeof(Element));
+    thirdElement->_name = "Melao";*/
 	//TODO: Implement this
 	cout << "Implement  Menu::listItems" << endl;
 }
 
 void Menu::addItems()
 {
+	system("cls");
+
+	cout <<" Agregar"<<endl << endl;
+	cout <<"1 - Nombre del producto: ";
+	cin >> _name;
+	cout <<endl<<"2 - Cantidad: ";
+	cin >> quantity;
+	List::add(_name,quantity);
+
+	cout <<endl<< "Product "<<_name <<" added"<<endl;
+	Menu::routeAction(option);
+	cout << endl;
+
+
 	//TODO: Implement this
-	cout << "Implement  Menu::addItems" << endl;
+	//cout << "Implement  Menu::addItems" << endl;
 }
 
 void Menu::removeItems()
 {
-	//TODO: Implement this
-	cout << "Implement  Menu::removeItems" << endl;
+	system("cls");
+	cout << endl << " Delete Products "<< endl;
+	mostrar(producto);
+	cout <<endl<< "Choose the id of the product to delete => ";
+	cin >> id;
+	List::remove(id);
+	cout <<endl<< "Product "<<id <<" Deleted"<<endl;
+	Menu::routeAction(option);
+	cout << endl;
+		//TODO: Implement this
+	//cout << "Implement  Menu::removeItems" << endl;
 }
 
 void Menu::show()
@@ -89,7 +134,7 @@ void Menu::show()
 	do
 	{
 		clearScreen();
-		cout << "ITLA Shopping List" << endl;
+		cout << "ITLA Shopping LiST" << endl;
 		cout << "1- List items" << endl;
 		cout << "2- Add Item" << endl;
 		cout << "3- Remove Item" << endl;

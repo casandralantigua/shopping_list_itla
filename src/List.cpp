@@ -16,8 +16,16 @@ List::List(): _first(NULL), _last(NULL)
 
 }
 
-void List::add(Element* element)
+void List::add(Element* element,Element* quantity )
 {
+        if(_first == NULL)
+        {
+            _first = element;
+            _last = element;
+        }else{
+            _last ->_next = element;
+            _last = element;
+        }
 	//TODO: Implement this method
 	cout << "You should write the code for adding " << element -> _name << endl;
 
